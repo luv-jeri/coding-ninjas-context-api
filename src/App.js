@@ -1,6 +1,6 @@
 import './App.css';
-import ComponentA from './components/ComponentA';
-import ComponentB from './components/ComponentB';
+import ComponentA from './classComponents/ComponentA';
+import ComponentB from './classComponents/ComponentB';
 import ComponentC from './components/ComponentC';
 import { context } from './context';
 
