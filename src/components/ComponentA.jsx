@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { context } from '../App';
+import { context } from '../context';
 
 function ComponentA() {
   const value = useContext(context);
