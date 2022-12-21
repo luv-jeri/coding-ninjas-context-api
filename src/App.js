@@ -8,7 +8,12 @@ const context = createContext();
 
 function App() {
   return (
-    <context.Provider value={'🔥'}>
+    <context.Provider
+      value={{
+        name: 'John Doe',
+        age: 30,
+      }}
+    >
       <div className='App'>
         <ComponentA />
         <ComponentB />

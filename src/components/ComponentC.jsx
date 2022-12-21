@@ -1,7 +1,9 @@
-import React from 'react'
-
+import React from 'react';
+import { useContext } from 'react';
+import { context } from '../App';
 function ComponentC() {
-  return <div className='component'>ComponentC - 🔥</div>;
+  const value = useContext(context);
+  return <div className='component'>ComponentC - {value.name} {value.age}</div>;
 }
 
 export default ComponentC;
