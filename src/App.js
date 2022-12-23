@@ -1,24 +1,27 @@
 import './App.css';
-import { context } from './context';
-import { useState } from 'react';
 import Items from './components/Items';
 import Total from './components/Total';
+import Login from './components/Login';
 
+import { ItemContextProvider } from './context/ItemContext';
+import { useUserContext } from './context/UserContext';
 function App() {
-  const [total, setTotal] = useState(0);
+  const { user } = useUserContext();
   return (
-    <context.Provider
-      value={{
-        total,
-        setTotal,
-      }}
-    >
+    <ItemContextProvider>
       <div className='App'>
-        <h2>Shopping Cart</h2>
-        <Total />
-        <Items />
+        {user ? (
+          <>
+            {' '}
+            <h2>Shopping Cart</h2>
+            <Total />
+            <Items />
+          </>
+        ) : (
+          <Login />
+        )}
       </div>
-    </context.Provider>
+    </ItemContextProvider>
   );
 }
 

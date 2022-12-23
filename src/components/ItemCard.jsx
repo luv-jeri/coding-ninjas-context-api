@@ -1,9 +1,18 @@
 import React from 'react';
 import styles from '../styles/ItemCard.module.css';
+import { useItemContext } from '../context/ItemContext';
 
 function ItemCard({ id, price, name }) {
-  const handleAdd = () => {};
-  const handleRemove = () => {};
+  const { add, remove } = useItemContext();
+
+  const handleAdd = () => {
+    add(price);
+  };
+
+  const handleRemove = () => {
+    remove(price);
+  };
+
   return (
     <div className={styles.itemCard}>
       <div className={styles.itemName}>{name}</div>

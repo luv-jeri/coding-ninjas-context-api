@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--accent-color);
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 2rem 7rem;
+
+    box-shadow: 10px 10px 0px 1px rgba(0, 0, 0, 1);
+}
+
+.box h1 {
+    margin: 1rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    border-bottom: 0.3rem solid var(--accent-color)
+}
+
+.box input {
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: 0.2rem solid #000;
+    border-radius: 0.5rem;
+    box-shadow: 3px 3px 0px 1px rgba(0, 0, 0, 1);
+    transition: all 0.2s ease-in-out;
+}
+
+.box input:hover {
+    transform: rotate(1deg) skew(1deg) translate(5px, 1px);
+    box-shadow: 5px 5px 0px 1px rgba(0, 0, 0, 1);
+}
+
+.box input:focus {
+    transform: scale(1.1) rotate(1deg) skew(1deg) translate(5px, 1px);
+    box-shadow: 5px 5px 0px 1px rgba(0, 0, 0, 1);
+}
+
+.box button {
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: 0.2rem solid #000;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    box-shadow: 3px 3px 0px 1px rgba(0, 0, 0, 1);
+    transition: all 0.2s ease-in-out;
+}
+
+.box button:hover {
+    transform: scale(0.9);
+    box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 1);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
