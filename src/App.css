@@ -1,0 +1,22 @@
+.top-bar {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.top-bar button {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}

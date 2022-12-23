@@ -5,7 +5,9 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-color: var(--accent-color);
+    opacity: 0.8;
+    background-image: radial-gradient(var(--accent-color) 5px, var(--primary-color) 5px);
+    background-size: 60px 60px;
 }
 
 .box {
@@ -13,9 +15,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: var(--primary-color);
     padding: 2rem 7rem;
-
+    border: 0.2rem solid #000;
     box-shadow: 10px 10px 0px 1px rgba(0, 0, 0, 1);
 }
 
