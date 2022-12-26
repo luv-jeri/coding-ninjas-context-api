@@ -20,7 +20,6 @@ const UserContextProvider = ({ children }) => {
       name: 'John Doe',
       id: 1,
     };
-    console.log('done');
 
     if (email === user.email && password === user.password) {
       setUser(user);
