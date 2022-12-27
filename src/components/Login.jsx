@@ -3,7 +3,7 @@ import styles from '../styles/Login.module.css';
 import { useUserContext } from '../context/UserContext';
 
 function Login() {
-  const { login } = useUserContext();
+  const { login, register } = useUserContext();
 
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(true);
@@ -33,6 +33,14 @@ function Login() {
           }}
         >
           Login
+        </button>
+        <button
+          onClick={() => {
+            console.log('hell');
+            register(email, password);
+          }}
+        >
+          Register
         </button>
       </div>
     </div>

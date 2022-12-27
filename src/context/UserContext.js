@@ -1,4 +1,10 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
+import { auth } from '../firebase';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from 'firebase/auth';
 
 const UserContext = createContext();
 
@@ -12,21 +18,40 @@ const useUserContext = () => {
 
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const login = (email, password) => {
-    const user = {
-      email,
-      password,
-      name: 'John Doe',
-      id: 1,
-    };
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    });
+    return unsubscribe;
+  }, []);
 
-    if (email === user.email && password === user.password) {
-      setUser(user);
+  const login = async (email, password) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      setUser(userCredential.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const register = async (email, password) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      setUser(userCredential.user);
+    } catch (error) {
+      console.log(error);
     }
   };
 
   const logout = () => {
+    signOut(auth);
     setUser(null);
   };
 
@@ -35,10 +60,11 @@ const UserContextProvider = ({ children }) => {
       value={{
         login,
         logout,
+        register,
         user,
       }}
     >
-      {children}
+      {loading ? <div>Loading...</div> : children}
     </UserContext.Provider>
   );
 };
