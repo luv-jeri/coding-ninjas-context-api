@@ -4,13 +4,13 @@ const context = createContext();
 
 const useCart = () => {
   const value = useContext(context);
-  value.items = value.cart.length;
   return value;
 };
 
 const ContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [items , setItems] = useState(0)
   const [showCart, setShowCart] = useState(false);
 
   const handleAdd = (item) => {
@@ -24,14 +24,19 @@ const ContextProvider = ({ children }) => {
       setCart([...cart, { ...item, quantity: 1 }]);
       setTotal(total + item.price);
     }
+     setItems(items + 1);
   };
   const handleRemove = (id) => {
     const index = cart.findIndex((item) => item.id === id);
     if (index !== -1) {
       const newCart = [...cart];
-      newCart.splice(index, 1);
+      newCart[index].quantity--;
+      if (newCart[index].quantity === 0) {
+        newCart.splice(index, 1);
+      }
       setCart(newCart);
       setTotal(total - cart[index].price);
+      setItems(items - 1);
     }
   };
   const clear = () => {
@@ -52,6 +57,7 @@ const ContextProvider = ({ children }) => {
         total,
         cart,
         toggle,
+        items,
       }}
     >
       {showCart && <CartModal toggle={toggle} />}
