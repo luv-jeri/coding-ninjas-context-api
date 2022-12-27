@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from '../styles/ItemCard.module.css';
-import { useCon } from '../context';
+import { useCart } from '../context';
 
 function ItemCard({ id, price, name }) {
-  const { handleAdd, handleRemove } = useCon();
+  const { handleAdd, handleRemove } = useCart();
 
   return (
     <div className={styles.itemCard}>
@@ -13,7 +13,11 @@ function ItemCard({ id, price, name }) {
         <button
           className={styles.itemButton}
           onClick={() => {
-            handleAdd(price);
+            handleAdd({
+              id,
+              price,
+              name,
+            });
           }}
         >
           Add
@@ -21,7 +25,7 @@ function ItemCard({ id, price, name }) {
         <button
           className={styles.itemButton}
           onClick={() => {
-            handleRemove(price);
+            handleRemove(id);
           }}
         >
           Remove
