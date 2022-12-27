@@ -18,9 +18,8 @@ function CartModal({ toggle }) {
           return (
             <div className={styles.cartCard}>
               <h1>{item.name}</h1>
-              <h2>{item.price}</h2>
-
               <h3>X {item.quantity}</h3>
+              <h3>X {item.quantity * item.price}</h3>
             </div>
           );
         })}
