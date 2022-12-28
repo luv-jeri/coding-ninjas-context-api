@@ -1,14 +1,18 @@
 import React from 'react';
 import styles from '../styles/Total.module.css';
 import { useContext } from 'react';
-import { context } from '../context';
+import TotalContext from '../totalContext';
+import ItemContext from '../itemContext';
 
 function Total() {
-  const { total } = useContext(context);
+  const value = useContext(TotalContext);
+  const { item, setItem } =
+    useContext(ItemContext);
+
   return (
     <div className={styles.container}>
-      <h1>Total - {total}</h1>
-      <h1> Item - 0 </h1>
+      <h1>Total - {value.total}</h1>
+      <h1> Item - {item} </h1>
     </div>
   );
 }
