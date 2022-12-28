@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 function App() {
   const [total, setTotal] = useState(0);
-  const [item, setItem] = useState(0)
+  const [item, setItem] = useState(0);
 
   return (
     <div className='App'>
@@ -16,17 +16,12 @@ function App() {
         value={{
           total,
           setTotal,
+          item,
+          setItem
         }}
       >
-        <ItemContext.Provider
-          value={{
-            item,
-            setItem,
-          }}
-        >
           <Total />
           <Items />
-        </ItemContext.Provider>
       </TotalContext.Provider>
     </div>
   );

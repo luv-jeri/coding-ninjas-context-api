@@ -7,10 +7,8 @@ import ItemContext from '../itemContext';
 function ItemCard(props) {
   const { price, name } = props;
   const value = useContext(TotalContext);
-  const { item, setItem } =
-    useContext(ItemContext);
 
-  const { total, setTotal } = value;
+  const { total, setTotal , item , setItem } = value;
 
   const handleAdd = () => {
     setTotal(total + price);
