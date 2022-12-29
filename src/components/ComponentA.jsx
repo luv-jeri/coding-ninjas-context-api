@@ -1,13 +1,16 @@
 import React from 'react';
-
-import { useCount } from '../countContext';
+import { useContextOne } from '../contextOne';
+import { useContextTwo } from '../contextTwo';
 
 function ComponentA() {
-  const { name } = useCount();
-  console.log("ComponentA rendered")
+  const { two } = useContextTwo();
+  const { one } = useContextOne();
+
   return (
     <div className='component'>
-      ComponentA  Using Name - {name}
+      <h1>Component </h1>
+      <p>One: {one}</p>
+      <p>Two: {two}</p>
     </div>
   );
 }

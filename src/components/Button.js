@@ -1,10 +1,12 @@
 import React from 'react';
-import { useCount } from '../countContext';
+import { useContextOne } from '../contextOne';
+import { useContextTwo } from '../contextTwo';
 
 function Button() {
-  const { handleIncrement } = useCount();
+  const {  handleUpdateTwo} = useContextTwo();
+  const { handleUpdateOne } = useContextOne();
   return (
-    <button onClick={handleIncrement}>
+    <button onClick={handleUpdateTwo}>
       Button
     </button>
   );
