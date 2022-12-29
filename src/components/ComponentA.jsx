@@ -1,11 +1,15 @@
 import React from 'react';
-import { useContext } from 'react';
-import { context } from '../context';
+
+import { useCount } from '../countContext';
 
 function ComponentA() {
-  const value = useContext(context);
-  console.log(value);
-  return <div className='component'>ComponentA - {value.name}</div>;
+  const { name } = useCount();
+  console.log("ComponentA rendered")
+  return (
+    <div className='component'>
+      ComponentA  Using Name - {name}
+    </div>
+  );
 }
 
 export default ComponentA;

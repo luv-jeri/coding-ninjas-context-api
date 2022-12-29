@@ -12,3 +12,35 @@
   font-weight: 900;
   font-size: 1.5em;
 }
+
+button {
+  background-color: #FFFBEB;
+  color: #181D31;
+  font-weight: 900;
+  font-size: 1em;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid #181D31;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+button:hover {
+  background-color: #181D31;
+  color: #FFFBEB;
+}
+
+input {
+  background-color: #FFFBEB;
+  color: #181D31;
+  font-weight: 900;
+  font-size: 1em;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid #181D31;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+}

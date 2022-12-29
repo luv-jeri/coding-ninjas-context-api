@@ -1,11 +1,14 @@
 import React from 'react';
-import { context } from '../context';
+
+import { useCount } from '../countContext';
 
 function ComponentB() {
+  const { count } = useCount();
+  console.log('ComponentB rendered');
   return (
-    <context.Consumer>
-      {(value) => <div className='component'>ComponentB - {value.age}</div>}
-    </context.Consumer>
+    <div className='component'>
+      ComponentB using Count - {count}
+    </div>
   );
 }
 
